@@ -1,22 +1,23 @@
-package hr.foi.air.storknest;
+package hr.foi.air.storknest.login;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 import es.dmoral.toasty.Toasty;
-import hr.foi.air.storknest.Presenter.ILoginPresenter;
-import hr.foi.air.storknest.Presenter.LoginPresenter;
-import hr.foi.air.storknest.View.ILoginView;
+import hr.foi.air.storknest.R;
+import hr.foi.air.storknest.app.MainScreenActivity;
+import hr.foi.air.storknest.login.presenter.ILoginPresenter;
+import hr.foi.air.storknest.login.presenter.LoginPresenter;
+import hr.foi.air.storknest.login.view.ILoginView;
 
-public class MainActivity extends AppCompatActivity implements ILoginView {
+public class LoginActivity extends AppCompatActivity implements ILoginView {
 
     EditText edt_email, edt_password;
     Button btnLogin, btnRegister;
@@ -27,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements ILoginView {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // todo: comment out when needing login screen
+        startActivity(new Intent(this, MainScreenActivity.class));
 
         //INIT View
         btnLogin = (Button)findViewById(R.id.btn_login);
@@ -57,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements ILoginView {
     @Override
     public void onLoginSuccess(String message) {
         Toasty.success(this, message, Toast.LENGTH_SHORT).show();
+
+        startActivity(new Intent(this, MainScreenActivity.class));
     }
 
     @Override

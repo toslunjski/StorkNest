@@ -1,17 +1,16 @@
-package hr.foi.air.storknest.Presenter;
+package hr.foi.air.storknest.login.presenter;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import hr.foi.air.storknest.Model.User;
-import hr.foi.air.storknest.View.ILoginView;
+import hr.foi.air.storknest.login.model.User;
+import hr.foi.air.storknest.login.view.ILoginView;
 
 public class LoginPresenter implements ILoginPresenter {
 
@@ -83,7 +82,6 @@ public class LoginPresenter implements ILoginPresenter {
     public void onRegister(String email, String password) {
         User user = new User(email, password);
         int registerCode = user.isValidData();
-
 
         if (registerCode == 0) {
             loginView.onRegisterError("Enter e-mail!");

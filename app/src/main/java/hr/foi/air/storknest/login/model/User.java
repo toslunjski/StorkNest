@@ -1,33 +1,16 @@
-package hr.foi.air.storknest.Model;
+package hr.foi.air.storknest.login.model;
 
 
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Patterns;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.concurrent.Executor;
-
-import hr.foi.air.storknest.MainActivity;
-import hr.foi.air.storknest.Presenter.LoginPresenter;
 
 public class User implements IUser {
 
     private String email, password;
 
     public User(String email, String password) {
-
         this.email = email;
         this.password = password;
-
     }
 
     @Override

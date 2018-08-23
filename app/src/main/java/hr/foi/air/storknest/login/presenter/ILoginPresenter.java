@@ -1,4 +1,4 @@
-package hr.foi.air.storknest.Presenter;
+package hr.foi.air.storknest.login.presenter;
 
 public interface ILoginPresenter {
     void onLogin(String email, String password);

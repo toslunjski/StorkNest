@@ -1,4 +1,4 @@
-package hr.foi.air.storknest.View;
+package hr.foi.air.storknest.login.view;
 
 public interface ILoginView {
     void onLoginSuccess(String message);

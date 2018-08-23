@@ -1,4 +1,4 @@
-package hr.foi.air.storknest.Model;
+package hr.foi.air.storknest.login.model;
 
 public interface IUser {
     String getEmail();
