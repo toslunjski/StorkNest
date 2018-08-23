@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "545438663507",
+    "firebase_url": "https://storknest-eed46.firebaseio.com",
+    "project_id": "storknest-eed46",
+    "storage_bucket": "storknest-eed46.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:545438663507:android:1e070a15b8f0f640",
+        "android_client_info": {
+          "package_name": "hr.foi.air.storknest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "545438663507-tep5his20nalmsc4oschi197pcndkcje.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "hr.foi.air.storknest",
+            "certificate_hash": "a061c99fecfd9a7dae83430b9ae11cf9e56b534d"
+          }
+        },
+        {
+          "client_id": "545438663507-av6atap5fe8d66j9soh5c5ebd27e31bs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMArGCw64VifkWpHqFkEdTja_zcBoNjXc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "545438663507-av6atap5fe8d66j9soh5c5ebd27e31bs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
