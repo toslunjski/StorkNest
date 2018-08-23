@@ -4,6 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.feed.NewFeedActivity">
+    tools:context=".app.feed.NewFeedActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <LinearLayout
+        android:layout_width="344dp"
+        android:layout_height="495dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:text="Feeding Type"
+            app:layout_constraintBottom_toTopOf="@+id/feeding_type_group"
+            app:layout_constraintStart_toStartOf="@+id/feeding_type_group"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside" />
+
+        <RadioGroup
+            android:id="@+id/feeding_type_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+            <RadioButton
+                android:id="@+id/breast_feeding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Breast" />
+
+            <RadioButton
+                android:id="@+id/bottle_feeding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Bottle" />
+
+            <RadioButton
+                android:id="@+id/solid_feeding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Solid" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

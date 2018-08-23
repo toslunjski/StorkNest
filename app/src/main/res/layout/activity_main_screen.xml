@@ -49,6 +49,16 @@
             rfab:rfab_shadow_dx="0dp"
             rfab:rfab_shadow_dy="5dp"
             />
+
+        <Button
+            android:id="@+id/open_feeds_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="154dp"
+            android:text="List Of Feeds" />
     </com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout>
 
 </android.support.design.widget.CoordinatorLayout>

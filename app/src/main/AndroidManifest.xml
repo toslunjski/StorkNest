@@ -22,8 +22,13 @@
             android:name=".app.MainScreenActivity"
             android:label="@string/title_activity_main_screen"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:label="Adding New Feed" android:name=".app.feed.NewFeedActivity" />
-        <activity android:label="Adding New Diper" android:name=".app.diper.NewDiperActivity"></activity>
+        <activity
+            android:name=".app.feed.NewFeedActivity"
+            android:label="Adding New Feed" />
+        <activity
+            android:name=".app.diper.NewDiperActivity"
+            android:label="Adding New Diper" />
+        <activity android:label="List Of Feeds" android:name=".app.feed.FeedListActivity"></activity>
     </application>
 
 </manifest>

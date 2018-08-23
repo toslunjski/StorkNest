@@ -1,5 +1,6 @@
 package hr.foi.air.storknest.app;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton;
@@ -22,6 +24,7 @@ import java.util.List;
 
 import hr.foi.air.storknest.R;
 import hr.foi.air.storknest.app.diper.NewDiperActivity;
+import hr.foi.air.storknest.app.feed.FeedListActivity;
 import hr.foi.air.storknest.app.feed.NewFeedActivity;
 
 public class MainScreenActivity extends AppCompatActivity implements RapidFloatingActionContentLabelList.OnRapidFloatingActionContentLabelListListener {
@@ -66,12 +69,21 @@ public class MainScreenActivity extends AppCompatActivity implements RapidFloati
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        final Context ctx = this;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         setupPlusButton();
+
+        Button openListOfFeeds = findViewById(R.id.open_feeds_list);
+        openListOfFeeds.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(ctx, FeedListActivity.class));
+            }
+        });
     }
 
     private void handlePlusItemClick(int position, RFACLabelItem item) {
