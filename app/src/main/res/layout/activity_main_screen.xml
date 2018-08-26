@@ -18,6 +18,8 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
+
+
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_main_screen" />
@@ -49,6 +51,11 @@
             rfab:rfab_shadow_dx="0dp"
             rfab:rfab_shadow_dy="5dp"
             />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
         <Button
             android:id="@+id/open_feeds_list"
@@ -56,9 +63,56 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="154dp"
-            android:text="List Of Feeds" />
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="60dp"
+            android:text="Feeds" />
+
+        <Button
+            android:id="@+id/open_diaper_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="30dp"
+            android:text="Diapers" />
+
+            <Button
+                android:id="@+id/open_hygiene_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:text="Hygiene" />
+
+            <Button
+                android:id="@+id/open_measure_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:text="Measures" />
+
+            <Button
+                android:id="@+id/open_doctors_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:text="Doctors" />
+
+            <Button
+                android:id="@+id/open_vaccination_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="30dp"
+                android:text="Vaccination" />
+
+        </LinearLayout>
     </com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout>
 
 </android.support.design.widget.CoordinatorLayout>

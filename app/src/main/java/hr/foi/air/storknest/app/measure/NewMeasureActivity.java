@@ -1,7 +1,7 @@
-package hr.foi.air.storknest.app.feed;
+package hr.foi.air.storknest.app.measure;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -9,11 +9,11 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import hr.foi.air.storknest.R;
-import hr.foi.air.storknest.app.presenter.NewFeedPresenter;
 import hr.foi.air.storknest.app.presenter.INewFeedPresenter;
+import hr.foi.air.storknest.app.presenter.NewFeedPresenter;
 import hr.foi.air.storknest.app.view.INewFeedView;
 
-public class NewFeedActivity extends AppCompatActivity implements INewFeedView {
+public class NewMeasureActivity extends AppCompatActivity implements INewFeedView {
 
     private INewFeedPresenter feedPresenter;
     private RadioGroup radioGroupType, radioGroupAmount;

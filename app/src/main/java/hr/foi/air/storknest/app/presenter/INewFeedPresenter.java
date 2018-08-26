@@ -4,5 +4,5 @@ import android.view.View;
 import android.widget.RadioButton;
 
 public interface INewFeedPresenter {
-    void onSaveFeed(RadioButton selectedFeedType);
+    void onSaveFeed(RadioButton selectedFeedType, RadioButton selectedFeedAmount);
 }

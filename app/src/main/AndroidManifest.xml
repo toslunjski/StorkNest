@@ -18,17 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".app.MainScreenActivity"
-            android:label="@string/title_activity_main_screen"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".app.feed.NewFeedActivity"
-            android:label="Adding New Feed" />
-        <activity
-            android:name=".app.diper.NewDiperActivity"
-            android:label="Adding New Diper" />
-        <activity android:label="List Of Feeds" android:name=".app.feed.FeedListActivity"></activity>
+        <activity android:name=".app.MainScreenActivity" android:label="@string/title_activity_main_screen" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".app.feed.NewFeedActivity" android:label="Adding New Feed" />
+        <activity android:name=".app.diaper.NewDiaperActivity" android:label="Adding New Diaper" />
+        <activity android:name=".app.diaper.DiaperListActivity" android:label="List of Diapers" />
+        <activity android:name=".app.feed.FeedListActivity" android:label="List Of Feeds" ></activity>
+        <activity android:name=".app.hygiene.NewHygieneActivity" android:label="Adding New Hygiene" ></activity>
+        <activity android:name=".app.hygiene.HygieneListActivity" android:label="List Of Hygiene" ></activity>
     </application>
 
 </manifest>

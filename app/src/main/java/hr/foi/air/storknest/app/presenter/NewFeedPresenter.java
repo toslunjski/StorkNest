@@ -28,13 +28,14 @@ public class NewFeedPresenter implements INewFeedPresenter {
     }
 
     @Override
-    public void onSaveFeed(RadioButton selectedFeedType) {
+    public void onSaveFeed(RadioButton selectedFeedType, RadioButton selectedFeedAmount ) {
         DatabaseReference feedsTable = mDatabase.getReference("feeds");
         String newFeedId = feedsTable.push().getKey();
 
         FeedModel newFeed = new FeedModel();
         newFeed.id = newFeedId;
         newFeed.feedType = selectedFeedType.getText().toString();
+        newFeed.feedAmount = selectedFeedAmount.getText().toString();
         newFeed.createdAt = new Date().toString();
 
         feedsTable.child(newFeedId).setValue(newFeed).addOnFailureListener(new OnFailureListener() {

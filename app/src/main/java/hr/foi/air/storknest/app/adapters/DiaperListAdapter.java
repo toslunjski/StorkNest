@@ -12,15 +12,16 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import hr.foi.air.storknest.R;
+import hr.foi.air.storknest.app.model.DiaperModel;
 import hr.foi.air.storknest.app.model.FeedModel;
 
-public class FeedListAdapter extends ArrayAdapter<FeedModel> implements View.OnClickListener {
+public class DiaperListAdapter extends ArrayAdapter<DiaperModel> implements View.OnClickListener {
 
-    private ArrayList<FeedModel> dataSet;
+    private ArrayList<DiaperModel> dataSet;
     private Context mContext;
 
-    public FeedListAdapter(ArrayList<FeedModel> data, Context context) {
-        super(context, R.layout.activity_feed_list_item, data);
+    public DiaperListAdapter(ArrayList<DiaperModel> data, Context context) {
+        super(context, R.layout.activity_diaper_list_item, data);
         this.dataSet = data;
         this.mContext = context;
     }
@@ -33,20 +34,20 @@ public class FeedListAdapter extends ArrayAdapter<FeedModel> implements View.OnC
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        FeedModel feed = getItem(position);
+        DiaperModel diaper = getItem(position);
         View listItem = convertView;
 
         if (listItem == null)
-            listItem = LayoutInflater.from(mContext).inflate(R.layout.activity_feed_list_item, parent, false);
+            listItem = LayoutInflater.from(mContext).inflate(R.layout.activity_diaper_list_item, parent, false);
 
-        TextView feedType = listItem.findViewById(R.id.feed_type);
-        feedType.setText(feed.feedType);
+        TextView pee = listItem.findViewById(R.id.diaper_pee);
+        pee.setText(diaper.diaperPee);
 
-        TextView feedAmount = listItem.findViewById(R.id.feed_amount);
-        feedAmount.setText(feed.feedAmount);
+        TextView poo = listItem.findViewById(R.id.diaper_poo);
+        poo.setText(diaper.diaperPoo);
 
         TextView createdAt = listItem.findViewById(R.id.created_time);
-        createdAt.setText(feed.createdAt);
+        createdAt.setText(diaper.createdAt);
 
         return listItem;
     }

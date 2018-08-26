@@ -10,6 +10,8 @@ public class FeedModel {
 
     public String feedType;
 
+    public String feedAmount;
+
     public String createdAt;
 
     public FeedModel() {
@@ -19,6 +21,7 @@ public class FeedModel {
     public FeedModel deserialize(DataSnapshot snapshot) {
         id = snapshot.child("id").getValue().toString();
         feedType = snapshot.child("feedType").getValue().toString();
+        feedAmount = snapshot.child("feedAmount").getValue().toString();
         createdAt = snapshot.child("createdAt").getValue().toString();
 
         return this;
