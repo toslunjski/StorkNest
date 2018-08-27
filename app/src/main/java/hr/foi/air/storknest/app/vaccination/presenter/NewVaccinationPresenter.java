@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,12 +27,13 @@ public class NewVaccinationPresenter implements INewVaccinationPresenter {
     }
 
     @Override
-    public void onSaveVaccination(String vaccinationName) {
-        DatabaseReference vaccinationTable = mDatabase.getReference("vaccination");
+    public void onSaveVaccination(String user, String vaccinationName) {
+        DatabaseReference vaccinationTable = mDatabase.getReference("vaccination/" + user);
         String newVaccinationId = vaccinationTable.push().getKey();
 
         VaccinationModel newVaccination = new VaccinationModel();
         newVaccination.id = newVaccinationId;
+        newVaccination.user = FirebaseAuth.getInstance().getCurrentUser().getUid();
         newVaccination.vaccinationName = vaccinationName;
         newVaccination.createdAt = new Date().toString();
 

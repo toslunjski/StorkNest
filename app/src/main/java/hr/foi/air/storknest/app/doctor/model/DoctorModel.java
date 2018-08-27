@@ -6,6 +6,8 @@ public class DoctorModel {
 
     public String id;
 
+    public String user;
+
     public String doctorNameSurname;
 
     public String doctorType;

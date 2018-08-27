@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
     EditText edt_email, edt_password;
     Button btnLogin, btnRegister;
     FirebaseAuth firebaseAuth;
+
     ILoginPresenter loginPresenter;
 
     @Override
@@ -30,7 +31,7 @@ public class LoginActivity extends AppCompatActivity implements ILoginView {
         setContentView(R.layout.activity_main);
 
         // todo: comment out when needing login screen
-         startActivity(new Intent(this, MainScreenActivity.class));
+        //startActivity(new Intent(this, MainScreenActivity.class));
 
         //INIT View
         btnLogin = (Button)findViewById(R.id.btn_login);

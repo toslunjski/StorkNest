@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseUser;
+
 import java.util.ArrayList;
 
 import hr.foi.air.storknest.R;
@@ -38,6 +40,8 @@ public class FeedListAdapter extends ArrayAdapter<FeedModel> implements View.OnC
 
         if (listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(R.layout.activity_feed_list_item, parent, false);
+
+
 
         TextView feedType = listItem.findViewById(R.id.feed_type);
         feedType.setText(feed.feedType);

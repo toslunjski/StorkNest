@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -27,12 +28,13 @@ public class NewDoctorPresenter implements INewDoctorPresenter {
     }
 
     @Override
-    public void onSaveDoctor(String nameSurname, String type, String workingHoursFrom, String workingHoursTo, String telephone ) {
-        DatabaseReference doctorTable = mDatabase.getReference("doctor");
+    public void onSaveDoctor(String user, String nameSurname, String type, String workingHoursFrom, String workingHoursTo, String telephone ) {
+        DatabaseReference doctorTable = mDatabase.getReference("doctor/"+ user);
         String newDoctorId = doctorTable.push().getKey();
 
         DoctorModel newDoctor = new DoctorModel();
         newDoctor.id = newDoctorId;
+        newDoctor.user = FirebaseAuth.getInstance().getCurrentUser().getUid();
         newDoctor.doctorNameSurname = nameSurname;
         newDoctor.doctorType = type;
         newDoctor.doctorWorkingHoursFrom = workingHoursFrom;

@@ -6,6 +6,7 @@ import android.widget.CheckBox;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,12 +27,14 @@ public class NewHygienePresenter implements INewHygienePresenter {
     }
 
     @Override
-    public void onSaveHygiene(CheckBox checkBody, CheckBox checkHair, CheckBox checkBelly ) {
-        DatabaseReference hygieneTable = mDatabase.getReference("hygiene");
+    public void onSaveHygiene(String user, CheckBox checkBody, CheckBox checkHair, CheckBox checkBelly ) {
+        DatabaseReference hygieneTable = mDatabase.getReference("hygiene/" + user);
         String newHygieneId = hygieneTable.push().getKey();
+
 
         HygieneModel newHygiene = new HygieneModel();
         newHygiene.id = newHygieneId;
+        newHygiene.user = FirebaseAuth.getInstance().getCurrentUser().getUid();
         if(checkBody.isChecked()){
         newHygiene.hygieneBody = checkBody.getText().toString();}
         else newHygiene.hygieneBody = "";

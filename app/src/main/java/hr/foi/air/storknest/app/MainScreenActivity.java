@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionButton;
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionHelper;
 import com.wangjie.rapidfloatingactionbutton.RapidFloatingActionLayout;
@@ -31,12 +33,14 @@ import hr.foi.air.storknest.app.measure.MeasureListActivity;
 import hr.foi.air.storknest.app.measure.NewMeasureActivity;
 import hr.foi.air.storknest.app.vaccination.NewVaccinationActivity;
 import hr.foi.air.storknest.app.vaccination.VaccinationListActivity;
+import hr.foi.air.storknest.login.LoginActivity;
 
 public class MainScreenActivity extends AppCompatActivity implements RapidFloatingActionContentLabelList.OnRapidFloatingActionContentLabelListListener {
 
     private RapidFloatingActionLayout rfaLayout;
     private RapidFloatingActionButton rfaBtn;
     private RapidFloatingActionHelper rfabHelper;
+
 
     private void setupPlusButton() {
 
@@ -154,6 +158,15 @@ public class MainScreenActivity extends AppCompatActivity implements RapidFloati
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ctx, VaccinationListActivity.class));
+            }
+        });
+
+        Button signOut = findViewById(R.id.button_signOut);
+        signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(ctx, LoginActivity.class));
             }
         });
     }

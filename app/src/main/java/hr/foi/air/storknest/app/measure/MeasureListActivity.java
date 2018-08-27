@@ -8,12 +8,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import hr.foi.air.storknest.R;
-import hr.foi.air.storknest.app.adapters.FeedListAdapter;
 import hr.foi.air.storknest.app.adapters.MeasureListAdapter;
-import hr.foi.air.storknest.app.feed.model.FeedModel;
-import hr.foi.air.storknest.app.feed.presenter.FeedListPresenter;
-import hr.foi.air.storknest.app.feed.presenter.IFeedListPresenter;
-import hr.foi.air.storknest.app.feed.view.IFeedListView;
 import hr.foi.air.storknest.app.measure.model.MeasureModel;
 import hr.foi.air.storknest.app.measure.presenter.IMeasureListPresenter;
 import hr.foi.air.storknest.app.measure.presenter.MeasureListPresenter;

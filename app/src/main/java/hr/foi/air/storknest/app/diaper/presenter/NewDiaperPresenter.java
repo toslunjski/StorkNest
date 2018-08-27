@@ -7,6 +7,7 @@ import android.widget.CheckBox;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -21,18 +22,20 @@ public class NewDiaperPresenter implements INewDiaperPresenter {
     private FirebaseDatabase mDatabase;
     private INewDiaperView newDiaperView;
 
+
     public NewDiaperPresenter(INewDiaperView newDiaperView) {
         this.mDatabase = FirebaseDatabase.getInstance();
         this.newDiaperView = newDiaperView;
     }
 
     @Override
-    public void onSaveDiaper(CheckBox checkPeeValue, CheckBox checkPooValue ) {
-        DatabaseReference diapersTable = mDatabase.getReference("diapers");
+    public void onSaveDiaper(String user, CheckBox checkPeeValue, CheckBox checkPooValue ) {
+        DatabaseReference diapersTable = mDatabase.getReference("diapers/"+user);
         String newDiaperId = diapersTable.push().getKey();
 
         DiaperModel newDiaper = new DiaperModel();
         newDiaper.id = newDiaperId;
+        newDiaper.user = FirebaseAuth.getInstance().getCurrentUser().getUid();
         if(checkPeeValue.isChecked()){
         newDiaper.diaperPee = checkPeeValue.getText().toString();}
         else newDiaper.diaperPee = "";

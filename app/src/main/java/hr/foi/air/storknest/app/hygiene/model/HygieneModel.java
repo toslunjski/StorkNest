@@ -6,6 +6,8 @@ public class HygieneModel {
 
     public String id;
 
+    public String user;
+
     public String hygieneBody;
 
     public String hygieneHair;

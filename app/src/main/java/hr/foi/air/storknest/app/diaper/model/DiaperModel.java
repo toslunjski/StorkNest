@@ -6,6 +6,8 @@ public class DiaperModel {
 
     public String id;
 
+    public String user;
+
     public String diaperPee;
 
     public String diaperPoo;

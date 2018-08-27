@@ -2,6 +2,7 @@ package hr.foi.air.storknest.app.diaper.presenter;
 
 import android.support.annotation.NonNull;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -16,6 +17,7 @@ public class DiaperListPresenter implements IDiaperListPresenter {
 
     private FirebaseDatabase mDatabase;
     private IDiaperListView diaperListView;
+    private String user;
 
     public DiaperListPresenter(IDiaperListView diaperListView) {
         this.mDatabase = FirebaseDatabase.getInstance();
@@ -24,7 +26,8 @@ public class DiaperListPresenter implements IDiaperListPresenter {
 
     @Override
     public void onGetDiapers() {
-        mDatabase.getReference().child("diapers").addListenerForSingleValueEvent(new ValueEventListener() {
+        user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        mDatabase.getReference("diapers/" + user).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ArrayList<DiaperModel> diapers = new ArrayList<>();

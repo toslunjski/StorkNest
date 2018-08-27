@@ -2,6 +2,7 @@ package hr.foi.air.storknest.app.doctor.presenter;
 
 import android.support.annotation.NonNull;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -11,14 +12,12 @@ import java.util.ArrayList;
 
 import hr.foi.air.storknest.app.doctor.model.DoctorModel;
 import hr.foi.air.storknest.app.doctor.view.IDoctorListView;
-import hr.foi.air.storknest.app.measure.model.MeasureModel;
-import hr.foi.air.storknest.app.measure.presenter.IMeasureListPresenter;
-import hr.foi.air.storknest.app.measure.view.IMeasureListView;
 
 public class DoctorListPresenter implements IDoctorListPresenter {
 
     private FirebaseDatabase mDatabase;
     private IDoctorListView doctorListView;
+    private String user;
 
     public DoctorListPresenter(IDoctorListView doctorListView) {
         this.mDatabase = FirebaseDatabase.getInstance();
@@ -27,7 +26,8 @@ public class DoctorListPresenter implements IDoctorListPresenter {
 
     @Override
     public void onGetDoctor() {
-        mDatabase.getReference().child("doctor").addListenerForSingleValueEvent(new ValueEventListener() {
+        user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        mDatabase.getReference("doctor/" + user).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ArrayList<DoctorModel> doctor = new ArrayList<>();

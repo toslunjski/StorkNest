@@ -2,6 +2,7 @@ package hr.foi.air.storknest.app.feed.presenter;
 
 import android.support.annotation.NonNull;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -16,6 +17,7 @@ public class FeedListPresenter implements IFeedListPresenter {
 
     private FirebaseDatabase mDatabase;
     private IFeedListView feedListView;
+    private String user;
 
     public FeedListPresenter(IFeedListView feedListView) {
         this.mDatabase = FirebaseDatabase.getInstance();
@@ -24,7 +26,8 @@ public class FeedListPresenter implements IFeedListPresenter {
 
     @Override
     public void onGetFeeds() {
-        mDatabase.getReference().child("feeds").addListenerForSingleValueEvent(new ValueEventListener() {
+        user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        mDatabase.getReference("feeds/" + user).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ArrayList<FeedModel> feeds = new ArrayList<>();

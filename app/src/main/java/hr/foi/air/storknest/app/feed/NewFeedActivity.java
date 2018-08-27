@@ -8,6 +8,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import hr.foi.air.storknest.R;
 import hr.foi.air.storknest.app.feed.presenter.NewFeedPresenter;
 import hr.foi.air.storknest.app.feed.presenter.INewFeedPresenter;
@@ -17,6 +20,7 @@ public class NewFeedActivity extends AppCompatActivity implements INewFeedView {
 
     private INewFeedPresenter feedPresenter;
     private RadioGroup radioGroupType, radioGroupAmount;
+    private String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +36,10 @@ public class NewFeedActivity extends AppCompatActivity implements INewFeedView {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                user = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 RadioButton selectedRadioButtonType = (RadioButton) findViewById(radioGroupType.getCheckedRadioButtonId());
                 RadioButton selectedRadioButtonAmount = (RadioButton) findViewById(radioGroupAmount.getCheckedRadioButtonId());
-                feedPresenter.onSaveFeed(selectedRadioButtonType, selectedRadioButtonAmount);
+                feedPresenter.onSaveFeed(user, selectedRadioButtonType, selectedRadioButtonAmount);
             }
         });
     }

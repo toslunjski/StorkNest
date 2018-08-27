@@ -2,6 +2,7 @@ package hr.foi.air.storknest.app.hygiene.presenter;
 
 import android.support.annotation.NonNull;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -16,6 +17,7 @@ public class HygieneListPresenter implements IHygieneListPresenter {
 
     private FirebaseDatabase mDatabase;
     private IHygieneListView hygieneListView;
+    private String user;
 
     public HygieneListPresenter(IHygieneListView hygieneListView) {
         this.mDatabase = FirebaseDatabase.getInstance();
@@ -24,7 +26,8 @@ public class HygieneListPresenter implements IHygieneListPresenter {
 
     @Override
     public void onGetHygiene() {
-        mDatabase.getReference().child("hygiene").addListenerForSingleValueEvent(new ValueEventListener() {
+        user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        mDatabase.getReference("hygiene/" + user).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ArrayList<HygieneModel> hygiene = new ArrayList<>();

@@ -6,6 +6,8 @@ public class VaccinationModel {
 
     public String id;
 
+    public String user;
+
     public String vaccinationName;
 
     public String createdAt;

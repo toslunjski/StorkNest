@@ -4,5 +4,5 @@ import android.widget.CheckBox;
 
 
 public interface INewHygienePresenter {
-    void onSaveHygiene(CheckBox body, CheckBox hair, CheckBox belly);
+    void onSaveHygiene(String user, CheckBox body, CheckBox hair, CheckBox belly);
 }

@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import hr.foi.air.storknest.R;
 import hr.foi.air.storknest.app.diaper.presenter.INewDiaperPresenter;
 import hr.foi.air.storknest.app.diaper.presenter.NewDiaperPresenter;
@@ -16,6 +18,7 @@ public class NewDiaperActivity extends AppCompatActivity implements INewDiaperVi
 
     private INewDiaperPresenter diaperPresenter;
     private CheckBox checkPee, checkPoo, checkPeeValue, checkPooValue;
+    private String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +34,10 @@ public class NewDiaperActivity extends AppCompatActivity implements INewDiaperVi
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                user = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 checkPeeValue = (CheckBox) findViewById(checkPee.getId());
                 checkPooValue = (CheckBox) findViewById(checkPoo.getId());
-                diaperPresenter.onSaveDiaper(checkPeeValue, checkPooValue);
+                diaperPresenter.onSaveDiaper(user, checkPeeValue, checkPooValue);
             }
         });
     }

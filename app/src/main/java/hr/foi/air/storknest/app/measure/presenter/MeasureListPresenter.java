@@ -2,6 +2,7 @@ package hr.foi.air.storknest.app.measure.presenter;
 
 import android.support.annotation.NonNull;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -17,6 +18,7 @@ public class MeasureListPresenter implements IMeasureListPresenter {
 
     private FirebaseDatabase mDatabase;
     private IMeasureListView measureListView;
+    private String user;
 
     public MeasureListPresenter(IMeasureListView measureListView) {
         this.mDatabase = FirebaseDatabase.getInstance();
@@ -25,7 +27,8 @@ public class MeasureListPresenter implements IMeasureListPresenter {
 
     @Override
     public void onGetMeasure() {
-        mDatabase.getReference().child("measure").addListenerForSingleValueEvent(new ValueEventListener() {
+        user = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        mDatabase.getReference().child("measure/" + user).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 ArrayList<MeasureModel> measure = new ArrayList<>();

@@ -6,6 +6,7 @@ import android.widget.RadioButton;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -25,12 +26,13 @@ public class NewFeedPresenter implements INewFeedPresenter {
     }
 
     @Override
-    public void onSaveFeed(RadioButton selectedFeedType, RadioButton selectedFeedAmount ) {
-        DatabaseReference feedsTable = mDatabase.getReference("feeds");
+    public void onSaveFeed(String user, RadioButton selectedFeedType, RadioButton selectedFeedAmount ) {
+        DatabaseReference feedsTable = mDatabase.getReference("feeds/" + user); //getReference("feeds" )
         String newFeedId = feedsTable.push().getKey();
 
         FeedModel newFeed = new FeedModel();
         newFeed.id = newFeedId;
+        newFeed.user = FirebaseAuth.getInstance().getCurrentUser().getUid();
         newFeed.feedType = selectedFeedType.getText().toString();
         newFeed.feedAmount = selectedFeedAmount.getText().toString();
         newFeed.createdAt = new Date().toString();

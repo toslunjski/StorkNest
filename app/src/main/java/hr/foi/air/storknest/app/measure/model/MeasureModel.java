@@ -6,6 +6,8 @@ public class MeasureModel {
 
     public String id;
 
+    public String user;
+
     public String measureWeight;
 
     public String measureHeight;

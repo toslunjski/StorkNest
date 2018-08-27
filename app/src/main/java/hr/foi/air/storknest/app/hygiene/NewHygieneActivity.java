@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import hr.foi.air.storknest.R;
 import hr.foi.air.storknest.app.hygiene.presenter.INewHygienePresenter;
 import hr.foi.air.storknest.app.hygiene.presenter.NewHygienePresenter;
@@ -16,6 +18,7 @@ public class NewHygieneActivity extends AppCompatActivity implements INewHygiene
 
     private INewHygienePresenter hygienePresenter;
     private CheckBox checkBody, checkHair, checkBelly, checkBodyValue, checkHairValue, checkBellyValue;
+    private String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +35,11 @@ public class NewHygieneActivity extends AppCompatActivity implements INewHygiene
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                user = FirebaseAuth.getInstance().getCurrentUser().getUid();
                 checkBodyValue = (CheckBox) findViewById(checkBody.getId());
                 checkHairValue = (CheckBox) findViewById(checkHair.getId());
                 checkBellyValue = (CheckBox) findViewById(checkBelly.getId());
-                hygienePresenter.onSaveHygiene(checkBodyValue, checkHairValue, checkBellyValue);
+                hygienePresenter.onSaveHygiene(user, checkBodyValue, checkHairValue, checkBellyValue);
             }
         });
     }
