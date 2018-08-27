@@ -6,15 +6,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import hr.foi.air.storknest.R;
 import hr.foi.air.storknest.app.adapters.FeedListAdapter;
-import hr.foi.air.storknest.app.model.FeedModel;
-import hr.foi.air.storknest.app.presenter.FeedListPresenter;
-import hr.foi.air.storknest.app.presenter.IFeedListPresenter;
-import hr.foi.air.storknest.app.presenter.NewFeedPresenter;
-import hr.foi.air.storknest.app.view.IFeedListView;
+import hr.foi.air.storknest.app.feed.model.FeedModel;
+import hr.foi.air.storknest.app.feed.presenter.FeedListPresenter;
+import hr.foi.air.storknest.app.feed.presenter.IFeedListPresenter;
+import hr.foi.air.storknest.app.feed.view.IFeedListView;
 
 public class FeedListActivity extends AppCompatActivity implements IFeedListView {
 

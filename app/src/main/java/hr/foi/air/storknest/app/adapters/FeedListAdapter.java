@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import hr.foi.air.storknest.R;
-import hr.foi.air.storknest.app.model.FeedModel;
+import hr.foi.air.storknest.app.feed.model.FeedModel;
 
 public class FeedListAdapter extends ArrayAdapter<FeedModel> implements View.OnClickListener {
 

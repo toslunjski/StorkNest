@@ -9,9 +9,9 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import hr.foi.air.storknest.R;
-import hr.foi.air.storknest.app.presenter.NewFeedPresenter;
-import hr.foi.air.storknest.app.presenter.INewFeedPresenter;
-import hr.foi.air.storknest.app.view.INewFeedView;
+import hr.foi.air.storknest.app.feed.presenter.NewFeedPresenter;
+import hr.foi.air.storknest.app.feed.presenter.INewFeedPresenter;
+import hr.foi.air.storknest.app.feed.view.INewFeedView;
 
 public class NewFeedActivity extends AppCompatActivity implements INewFeedView {
 

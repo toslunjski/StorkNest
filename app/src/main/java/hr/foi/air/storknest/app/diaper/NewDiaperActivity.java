@@ -5,13 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import hr.foi.air.storknest.R;
-import hr.foi.air.storknest.app.presenter.INewDiaperPresenter;
-import hr.foi.air.storknest.app.presenter.NewDiaperPresenter;
-import hr.foi.air.storknest.app.view.INewDiaperView;
+import hr.foi.air.storknest.app.diaper.presenter.INewDiaperPresenter;
+import hr.foi.air.storknest.app.diaper.presenter.NewDiaperPresenter;
+import hr.foi.air.storknest.app.diaper.view.INewDiaperView;
 
 public class NewDiaperActivity extends AppCompatActivity implements INewDiaperView {
 

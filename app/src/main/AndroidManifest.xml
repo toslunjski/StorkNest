@@ -24,7 +24,13 @@
         <activity android:name=".app.diaper.DiaperListActivity" android:label="List of Diapers" />
         <activity android:name=".app.feed.FeedListActivity" android:label="List Of Feeds" ></activity>
         <activity android:name=".app.hygiene.NewHygieneActivity" android:label="Adding New Hygiene" ></activity>
-        <activity android:name=".app.hygiene.HygieneListActivity" android:label="List Of Hygiene" ></activity>
+        <activity android:name=".app.hygiene.HygieneListActivity" android:label="List Of Hygienes" ></activity>
+        <activity android:name=".app.measure.NewMeasureActivity" android:label="Adding New Measure" ></activity>
+        <activity android:name=".app.measure.MeasureListActivity" android:label="List Of Measures" ></activity>
+        <activity android:name=".app.doctor.NewDoctorActivity" android:label="Adding New Doctor" ></activity>
+        <activity android:name=".app.doctor.DoctorListActivity" android:label="List Of Doctors" ></activity>
+        <activity android:name=".app.vaccination.NewVaccinationActivity" android:label="Adding New Vaccination" ></activity>
+        <activity android:name=".app.vaccination.VaccinationListActivity" android:label="List Of Vaccinations" ></activity>
     </application>
 
 </manifest>

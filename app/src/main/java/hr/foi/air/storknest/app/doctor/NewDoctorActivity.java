@@ -4,44 +4,54 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import hr.foi.air.storknest.R;
-import hr.foi.air.storknest.app.presenter.INewFeedPresenter;
-import hr.foi.air.storknest.app.presenter.NewFeedPresenter;
-import hr.foi.air.storknest.app.view.INewFeedView;
+import hr.foi.air.storknest.app.doctor.presenter.INewDoctorPresenter;
+import hr.foi.air.storknest.app.doctor.presenter.NewDoctorPresenter;
+import hr.foi.air.storknest.app.doctor.view.INewDoctorView;
+import hr.foi.air.storknest.app.feed.presenter.INewFeedPresenter;
+import hr.foi.air.storknest.app.feed.presenter.NewFeedPresenter;
+import hr.foi.air.storknest.app.feed.view.INewFeedView;
+import hr.foi.air.storknest.app.measure.presenter.NewMeasurePresenter;
 
-public class NewDoctorActivity extends AppCompatActivity implements INewFeedView {
+public class NewDoctorActivity extends AppCompatActivity implements INewDoctorView {
 
-    private INewFeedPresenter feedPresenter;
-    private RadioGroup radioGroupType, radioGroupAmount;
+    private INewDoctorPresenter doctorPresenter;
+    private String nameSurname, doctorType, workingHoursFrom, workingHoursTo, telephone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_feed);
+        setContentView(R.layout.activity_new_doctor);
 
-        radioGroupType= findViewById(R.id.feeding_type_group);
-        radioGroupAmount = findViewById(R.id.feeding_amount_group);
-
-        feedPresenter = new NewFeedPresenter(this);
+        doctorPresenter = new NewDoctorPresenter(this);
 
         final Button saveButton = findViewById(R.id.save);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RadioButton selectedRadioButtonType = (RadioButton) findViewById(radioGroupType.getCheckedRadioButtonId());
-                RadioButton selectedRadioButtonAmount = (RadioButton) findViewById(radioGroupAmount.getCheckedRadioButtonId());
-                feedPresenter.onSaveFeed(selectedRadioButtonType, selectedRadioButtonAmount);
+                EditText checkNameSurname = (EditText) findViewById(R.id.editText_nameSurname);
+                nameSurname = checkNameSurname.getText().toString();
+                EditText checkDoctorType = (EditText) findViewById(R.id.editText_doctorType);
+                doctorType = checkDoctorType.getText().toString();
+                EditText checkWorkingHoursFrom = (EditText) findViewById(R.id.editText_workingHoursFrom);
+                workingHoursFrom = checkWorkingHoursFrom.getText().toString();
+                EditText checkWorkingHoursTo = (EditText) findViewById(R.id.editText_workingHoursTo);
+                workingHoursTo = checkWorkingHoursTo.getText().toString();
+                EditText checkTelephone = (EditText) findViewById(R.id.editText_telephone);
+                telephone = checkTelephone.getText().toString();
+                doctorPresenter.onSaveDoctor(nameSurname, doctorType, workingHoursFrom, workingHoursTo, telephone);
             }
         });
     }
 
     @Override
-    public void onFeedSaved() {
-        Toast.makeText(this, "Feed saved", Toast.LENGTH_SHORT).show();
+    public void onDoctorSaved() {
+        Toast.makeText(this, "Doctor saved", Toast.LENGTH_SHORT).show();
         this.onBackPressed();
     }
 }

@@ -12,8 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import hr.foi.air.storknest.R;
-import hr.foi.air.storknest.app.model.DiaperModel;
-import hr.foi.air.storknest.app.model.FeedModel;
+import hr.foi.air.storknest.app.diaper.model.DiaperModel;
 
 public class DiaperListAdapter extends ArrayAdapter<DiaperModel> implements View.OnClickListener {
 

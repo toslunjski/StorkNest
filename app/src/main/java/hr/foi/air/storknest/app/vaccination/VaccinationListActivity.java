@@ -9,29 +9,34 @@ import java.util.ArrayList;
 
 import hr.foi.air.storknest.R;
 import hr.foi.air.storknest.app.adapters.FeedListAdapter;
-import hr.foi.air.storknest.app.model.FeedModel;
-import hr.foi.air.storknest.app.presenter.FeedListPresenter;
-import hr.foi.air.storknest.app.presenter.IFeedListPresenter;
-import hr.foi.air.storknest.app.view.IFeedListView;
+import hr.foi.air.storknest.app.adapters.VaccinationListAdapter;
+import hr.foi.air.storknest.app.feed.model.FeedModel;
+import hr.foi.air.storknest.app.feed.presenter.FeedListPresenter;
+import hr.foi.air.storknest.app.feed.presenter.IFeedListPresenter;
+import hr.foi.air.storknest.app.feed.view.IFeedListView;
+import hr.foi.air.storknest.app.vaccination.model.VaccinationModel;
+import hr.foi.air.storknest.app.vaccination.presenter.IVaccinationListPresenter;
+import hr.foi.air.storknest.app.vaccination.presenter.VaccinationListPresenter;
+import hr.foi.air.storknest.app.vaccination.view.IVaccinationListView;
 
-public class VaccinationListActivity extends AppCompatActivity implements IFeedListView {
+public class VaccinationListActivity extends AppCompatActivity implements IVaccinationListView {
 
-    IFeedListPresenter feedListPresenter;
+    IVaccinationListPresenter vaccinationListPresenter;
     ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed_list);
+        setContentView(R.layout.activity_vaccination_list);
 
-        feedListPresenter = new FeedListPresenter(this);
-        feedListPresenter.onGetFeeds();
+        vaccinationListPresenter = new VaccinationListPresenter(this);
+        vaccinationListPresenter.onGetVaccination();
     }
 
     @Override
-    public void onFeedList(ArrayList<FeedModel> feeds) {
+    public void onVaccinationList(ArrayList<VaccinationModel> Vaccination) {
         listView = findViewById(R.id.list_view);
-        ArrayAdapter<FeedModel> adapter = new ArrayAdapter<>(this, R.layout.activity_feed_list_item, feeds);
-        listView.setAdapter(new FeedListAdapter(feeds, this));
+        ArrayAdapter<VaccinationModel> adapter = new ArrayAdapter<>(this, R.layout.activity_vaccination_list_item, Vaccination);
+        listView.setAdapter(new VaccinationListAdapter(Vaccination, this));
     }
 }

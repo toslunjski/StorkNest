@@ -8,16 +8,11 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import hr.foi.air.storknest.R;
-import hr.foi.air.storknest.app.adapters.FeedListAdapter;
 import hr.foi.air.storknest.app.adapters.HygieneListAdapter;
-import hr.foi.air.storknest.app.model.FeedModel;
-import hr.foi.air.storknest.app.model.HygieneModel;
-import hr.foi.air.storknest.app.presenter.FeedListPresenter;
-import hr.foi.air.storknest.app.presenter.HygieneListPresenter;
-import hr.foi.air.storknest.app.presenter.IFeedListPresenter;
-import hr.foi.air.storknest.app.presenter.IHygieneListPresenter;
-import hr.foi.air.storknest.app.view.IFeedListView;
-import hr.foi.air.storknest.app.view.IHygieneListView;
+import hr.foi.air.storknest.app.hygiene.model.HygieneModel;
+import hr.foi.air.storknest.app.hygiene.presenter.HygieneListPresenter;
+import hr.foi.air.storknest.app.hygiene.presenter.IHygieneListPresenter;
+import hr.foi.air.storknest.app.hygiene.view.IHygieneListView;
 
 public class HygieneListActivity extends AppCompatActivity implements IHygieneListView {
 

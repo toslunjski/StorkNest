@@ -4,44 +4,46 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import hr.foi.air.storknest.R;
-import hr.foi.air.storknest.app.presenter.INewFeedPresenter;
-import hr.foi.air.storknest.app.presenter.NewFeedPresenter;
-import hr.foi.air.storknest.app.view.INewFeedView;
+import hr.foi.air.storknest.app.feed.presenter.INewFeedPresenter;
+import hr.foi.air.storknest.app.feed.presenter.NewFeedPresenter;
+import hr.foi.air.storknest.app.feed.view.INewFeedView;
+import hr.foi.air.storknest.app.vaccination.presenter.INewVaccinationPresenter;
+import hr.foi.air.storknest.app.vaccination.presenter.NewVaccinationPresenter;
+import hr.foi.air.storknest.app.vaccination.view.INewVaccinationView;
 
-public class NewVaccinationActivity extends AppCompatActivity implements INewFeedView {
+public class NewVaccinationActivity extends AppCompatActivity implements INewVaccinationView {
 
-    private INewFeedPresenter feedPresenter;
-    private RadioGroup radioGroupType, radioGroupAmount;
+    private INewVaccinationPresenter vaccinationPresenter;
+    private String vaccinationName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_feed);
+        setContentView(R.layout.activity_new_vaccination);
 
-        radioGroupType= findViewById(R.id.feeding_type_group);
-        radioGroupAmount = findViewById(R.id.feeding_amount_group);
-
-        feedPresenter = new NewFeedPresenter(this);
+        vaccinationPresenter = new NewVaccinationPresenter(this);
 
         final Button saveButton = findViewById(R.id.save);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RadioButton selectedRadioButtonType = (RadioButton) findViewById(radioGroupType.getCheckedRadioButtonId());
-                RadioButton selectedRadioButtonAmount = (RadioButton) findViewById(radioGroupAmount.getCheckedRadioButtonId());
-                feedPresenter.onSaveFeed(selectedRadioButtonType, selectedRadioButtonAmount);
+                EditText checkVaccinationName = (EditText) findViewById(R.id.editText_vaccinationName);
+                vaccinationName = checkVaccinationName.getText().toString();
+
+                vaccinationPresenter.onSaveVaccination(vaccinationName);
             }
         });
     }
 
     @Override
-    public void onFeedSaved() {
-        Toast.makeText(this, "Feed saved", Toast.LENGTH_SHORT).show();
+    public void onVaccinationSaved() {
+        Toast.makeText(this, "Vaccination saved", Toast.LENGTH_SHORT).show();
         this.onBackPressed();
     }
 }

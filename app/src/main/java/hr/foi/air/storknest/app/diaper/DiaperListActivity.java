@@ -8,10 +8,10 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import hr.foi.air.storknest.R;
 import hr.foi.air.storknest.app.adapters.DiaperListAdapter;
-import hr.foi.air.storknest.app.model.DiaperModel;
-import hr.foi.air.storknest.app.presenter.DiaperListPresenter;
-import hr.foi.air.storknest.app.presenter.IDiaperListPresenter;
-import hr.foi.air.storknest.app.view.IDiaperListView;
+import hr.foi.air.storknest.app.diaper.model.DiaperModel;
+import hr.foi.air.storknest.app.diaper.presenter.DiaperListPresenter;
+import hr.foi.air.storknest.app.diaper.presenter.IDiaperListPresenter;
+import hr.foi.air.storknest.app.diaper.view.IDiaperListView;
 
 public class DiaperListActivity extends AppCompatActivity implements IDiaperListView {
 

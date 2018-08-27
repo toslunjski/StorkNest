@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.measure.MeasureListActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/created_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="2dp"
+            android:text="Time"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#4d4d4d"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="230dp"
+            tools:layout_editor_absoluteY="154dp" />
+
+
+
+
+    <LinearLayout
+        android:layout_width="344dp"
+        android:layout_height="47dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="2dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Height:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#4d4d4d"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="38dp"
+            tools:layout_editor_absoluteY="133dp"/>
+
+        <TextView
+            android:id="@+id/measure_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Height"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:layout_editor_absoluteX="38dp"
+            tools:layout_editor_absoluteY="133dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="cm" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weight:"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#4d4d4d"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="38dp"
+            tools:layout_editor_absoluteY="133dp"/>
+
+        <TextView
+            android:id="@+id/measure_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Weight"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            tools:layout_editor_absoluteX="38dp"
+            tools:layout_editor_absoluteY="133dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="kg" />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>

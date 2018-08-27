@@ -9,29 +9,34 @@ import java.util.ArrayList;
 
 import hr.foi.air.storknest.R;
 import hr.foi.air.storknest.app.adapters.FeedListAdapter;
-import hr.foi.air.storknest.app.model.FeedModel;
-import hr.foi.air.storknest.app.presenter.FeedListPresenter;
-import hr.foi.air.storknest.app.presenter.IFeedListPresenter;
-import hr.foi.air.storknest.app.view.IFeedListView;
+import hr.foi.air.storknest.app.adapters.MeasureListAdapter;
+import hr.foi.air.storknest.app.feed.model.FeedModel;
+import hr.foi.air.storknest.app.feed.presenter.FeedListPresenter;
+import hr.foi.air.storknest.app.feed.presenter.IFeedListPresenter;
+import hr.foi.air.storknest.app.feed.view.IFeedListView;
+import hr.foi.air.storknest.app.measure.model.MeasureModel;
+import hr.foi.air.storknest.app.measure.presenter.IMeasureListPresenter;
+import hr.foi.air.storknest.app.measure.presenter.MeasureListPresenter;
+import hr.foi.air.storknest.app.measure.view.IMeasureListView;
 
-public class MeasureListActivity extends AppCompatActivity implements IFeedListView {
+public class MeasureListActivity extends AppCompatActivity implements IMeasureListView {
 
-    IFeedListPresenter feedListPresenter;
+    IMeasureListPresenter measureListPresenter;
     ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed_list);
+        setContentView(R.layout.activity_measure_list);
 
-        feedListPresenter = new FeedListPresenter(this);
-        feedListPresenter.onGetFeeds();
+        measureListPresenter = new MeasureListPresenter(this);
+        measureListPresenter.onGetMeasure();
     }
 
     @Override
-    public void onFeedList(ArrayList<FeedModel> feeds) {
+    public void onMeasureList(ArrayList<MeasureModel> measure) {
         listView = findViewById(R.id.list_view);
-        ArrayAdapter<FeedModel> adapter = new ArrayAdapter<>(this, R.layout.activity_feed_list_item, feeds);
-        listView.setAdapter(new FeedListAdapter(feeds, this));
+        ArrayAdapter<MeasureModel> adapter = new ArrayAdapter<>(this, R.layout.activity_measure_list_item, measure);
+        listView.setAdapter(new MeasureListAdapter(measure, this));
     }
 }

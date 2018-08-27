@@ -8,30 +8,31 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import hr.foi.air.storknest.R;
-import hr.foi.air.storknest.app.adapters.FeedListAdapter;
-import hr.foi.air.storknest.app.model.FeedModel;
-import hr.foi.air.storknest.app.presenter.FeedListPresenter;
-import hr.foi.air.storknest.app.presenter.IFeedListPresenter;
-import hr.foi.air.storknest.app.view.IFeedListView;
+import hr.foi.air.storknest.app.adapters.DoctorListAdapter;
+import hr.foi.air.storknest.app.doctor.model.DoctorModel;
+import hr.foi.air.storknest.app.doctor.presenter.DoctorListPresenter;
+import hr.foi.air.storknest.app.doctor.presenter.IDoctorListPresenter;
+import hr.foi.air.storknest.app.doctor.view.IDoctorListView;
 
-public class DoctorListActivity extends AppCompatActivity implements IFeedListView {
 
-    IFeedListPresenter feedListPresenter;
+public class DoctorListActivity extends AppCompatActivity implements IDoctorListView {
+
+    IDoctorListPresenter doctorListPresenter;
     ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feed_list);
+        setContentView(R.layout.activity_doctor_list);
 
-        feedListPresenter = new FeedListPresenter(this);
-        feedListPresenter.onGetFeeds();
+        doctorListPresenter = new DoctorListPresenter(this);
+        doctorListPresenter.onGetDoctor();
     }
 
     @Override
-    public void onFeedList(ArrayList<FeedModel> feeds) {
+    public void onDoctorList(ArrayList<DoctorModel> doctor) {
         listView = findViewById(R.id.list_view);
-        ArrayAdapter<FeedModel> adapter = new ArrayAdapter<>(this, R.layout.activity_feed_list_item, feeds);
-        listView.setAdapter(new FeedListAdapter(feeds, this));
+        ArrayAdapter<DoctorModel> adapter = new ArrayAdapter<>(this, R.layout.activity_doctor_list_item, doctor);
+        listView.setAdapter(new DoctorListAdapter(doctor, this));
     }
 }

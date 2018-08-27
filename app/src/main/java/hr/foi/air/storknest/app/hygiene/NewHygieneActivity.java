@@ -5,17 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import hr.foi.air.storknest.R;
-import hr.foi.air.storknest.app.presenter.INewFeedPresenter;
-import hr.foi.air.storknest.app.presenter.INewHygienePresenter;
-import hr.foi.air.storknest.app.presenter.NewFeedPresenter;
-import hr.foi.air.storknest.app.presenter.NewHygienePresenter;
-import hr.foi.air.storknest.app.view.INewFeedView;
-import hr.foi.air.storknest.app.view.INewHygieneView;
+import hr.foi.air.storknest.app.hygiene.presenter.INewHygienePresenter;
+import hr.foi.air.storknest.app.hygiene.presenter.NewHygienePresenter;
+import hr.foi.air.storknest.app.hygiene.view.INewHygieneView;
 
 public class NewHygieneActivity extends AppCompatActivity implements INewHygieneView {
 
